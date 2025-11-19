@@ -11,7 +11,7 @@ INFORMAÇÔES GERAIS
 a usar isso para caçar-los e proteger as pessoas]
 
 REQUISITOS FUNCIONAIS (RF)
- RF001 - Sistema de Motimentação [O jogador com o personagem pode ir para frente, para trás,para cima e para baixo/agachar]
+ RF001 - Sistema de Motimentação [O jogador com o personagem pode ir para frente, para trás,para cima/pular e para baixo/agachar]
  Prioridade: Alta
  Descrição: [O jogador deve controlar André, o protagonista, através de uma perspectiva em 2D interagindo com o ambiente,
 atacando os inimigos e deviando dos obstáculos]
