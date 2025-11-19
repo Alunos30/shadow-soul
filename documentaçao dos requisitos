@@ -1,32 +1,33 @@
 INFORMAÇÔES GERAIS
- Nome do Jogo: [Os pebinhas]
- Genero: [aventura e ação]
+ Nome do Jogo: [Shadow Soul]
+ Genero: [Ação e Terror]
  Plataformas: {PC e mobile]
- Publico-alvo: {Livre para todos os publicos}
+ Publico-alvo: {+12 Violência e Medo}
  Versão do Documento: 1.0
- Data: []
+ Data: [19/11/2025]
  
  sinopse
- [Breve descrição do conceito e historia do jogo]
+ [André, um garoto de 17 anos acaba encontrando uma escapada mágica que o dâ a capacidade de ver e tocar em fantasma. Ele começa
+a usar isso para caçar-los e proteger as pessoas]
 
 REQUISITOS FUNCIONAIS (RF)
- RF001 - Sistema de Motimentação 
+ RF001 - Sistema de Motimentação [O jogador com o personagem pode ir para frente, para trás,para cima e para baixo/agachar]
  Prioridade: Alta
- Descrição: O jogador deve poder controlar o personagem
- usando teclado e mouse ou no mobile
+ Descrição: [O jogador deve controlar André, o protagonista, através de uma perspectiva em 2D interagindo com o ambiente,
+atacando os inimigos e deviando dos obstáculos]
  Detalhes:
  - Teclas WASD ou setas para movimento do personagem no PC
  - Mouse ou os dedos no mobile
- - Velocidade de movimento: 7 unidades segundo
- - Suporte para corrida (Shift):9 unidades segundo
+ - Velocidade de movimento: 3 metros por unidade de segundo
+ - Suporte para corrida: PC(Shift) Mobile(Botão "Correr")
 
 REQUISITOS NÂO FUNCIONAIS (RNF)
  RNF001 - Desempenho
  Prioridade: Alta 
- Descrição: O jogo deve manter taxa de quantos estavel. 
+ Descrição: O jogo deve manter taxa de quardos estavél (FPS) para garantir melhor desempenho para o jogador
  métricas:
-- FPS mínino: 40 em hardware mínino 
-- FPS alvo: 60 em hardware recomendado  2
+- FPS mínino: 30 em hardware mínino 
+- FPS alvo: 60 em hardware recomendado 
 
 
 
