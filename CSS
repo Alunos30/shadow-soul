@@ -89,22 +89,3 @@ tr:nth-child(even) {
 .details-list li {
     margin-bottom: 5px;
 }
-
-/* =========================
-   BOTÕES E INTERAÇÕES (se necessário)
-   ========================= */
-
-button {
-    background-color: #ff4c4c;
-    color: #000000;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: 0.3s;
-}
-
-button:hover {
-    background-color: #000000;
-}
