@@ -1,215 +1,144 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shadow Soul – Info Dinâmico</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #1a1a1a;
-      color: #f0f0f0;
-      line-height: 1.6;
-      margin: 0;
-      padding: 0 20px;
-    }
-    h1, h2, h3 {
-      font-family: 'Verdana', sans-serif;
-      color: #ff4c4c;
-    }
-    h1 {
-      text-align: center;
-      margin-top: 30px;
-      font-size: 2.5em;
-    }
-    h2 {
-      border-bottom: 2px solid #ff4c4c;
-      padding-bottom: 5px;
-      margin-top: 30px;
-    }
-    h3 {
-      margin-top: 20px;
-      color: #ffa500;
-    }
-    .section {
-      background-color: #2a2a2a;
-      border-radius: 10px;
-      padding: 20px;
-      margin: 20px 0;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 15px;
-    }
-    table, th, td {
-      border: 1px solid #555;
-    }
-    th, td {
-      padding: 10px;
-      text-align: left;
-    }
-    th {
-      background-color: #333;
-      color: #ff4c4c;
-    }
-    tr:nth-child(even) {
-      background-color: #3a3a3a;
-    }
-    .details-list {
-      list-style-type: disc;
-      padding-left: 20px;
-    }
-    .details-list li {
-      margin-bottom: 5px;
-    }
-  </style>
-</head>
-<body>
-
-  <h1>Shadow Soul - Informações do Jogo</h1>
-
-  <div id="informacoes-gerais" class="section"></div>
-  <div id="requisitos-funcionais" class="section"></div>
-  <div id="requisitos-nao-funcionais" class="section"></div>
-
-  <script>
-     / requisitos const data = {
-      informacoesGerais: {
-        nome_jogo: "Shadow Soul",
-        genero: "Ação e Terror",
-        plataformas: "PC e Mobile",
-        publico_alvo: "+12 (Violência e Medo)",
-        versao_documento: "1.0",
-        data_documento: "2025-11-19",
-        sinopse: "André, um garoto de 17 anos, encontra uma escapada mágica que lhe dá a capacidade de ver e tocar fantasmas. Ele passa a usar esse poder para caçá-los e proteger as pessoas."
-      },
-      requisitosFuncionais: [
-        {
-          codigo: "RF001",
-          nome: "Sistema de Movimentação",
-          prioridade: "Alta",
-          descricao: "O jogador deve controlar André em perspectiva 2D, interagindo com o ambiente, atacando inimigos e desviando de obstáculos.",
-          detalhes: [
-            "Teclas WASD ou setas para movimento (PC)",
-            "Movimento via toque ou arrastar no mobile",
-            "Velocidade de movimento: 3 metros por segundo",
-            "Suporte para corrida: PC (Shift), Mobile (Botão \"Correr\")"
-          ]
-        }
-      ],
-      requisitosNaoFuncionais: [
-        {
-          codigo: "RNF001",
-          nome: "Desempenho",
-          prioridade: "Alta",
-          descricao: "O jogo deve manter taxa de quadros estável (FPS) para garantir bom desempenho.",
-          metricas: [
-            "FPS mínimo: 30 em hardware mínimo",
-            "FPS alvo: 60 em hardware recomendado"
-          ]
-        }
+// Requisitos
+const data = {
+  informacoesGerais: {
+    nome_jogo: "Shadow Soul",
+    genero: "Ação e Terror",
+    plataformas: "PC e Mobile",
+    publico_alvo: "+12 (Violência e Medo)",
+    versao_documento: "1.0",
+    data_documento: "2025-11-19",
+    sinopse: "André, um garoto de 17 anos, encontra uma escapada mágica que lhe dá a capacidade de ver e tocar fantasmas. Ele passa a usar esse poder para caçá-los e proteger as pessoas."
+  },
+  requisitosFuncionais: [
+    {
+      codigo: "RF001",
+      nome: "Sistema de Movimentação",
+      prioridade: "Alta",
+      descricao: "O jogador deve controlar André em perspectiva 2D, interagindo com o ambiente, atacando inimigos e desviando de obstáculos.",
+      detalhes: [
+        "Teclas WASD ou setas para movimento (PC)",
+        "Movimento via toque ou arrastar no mobile",
+        "Velocidade de movimento: 3 metros por segundo",
+        "Suporte para corrida: PC (Shift), Mobile (Botão \"Correr\")"
       ]
-    };
-
-    // Função para renderizar as informações gerais
-    function renderInformacoesGerais() {
-      const info = data.informacoesGerais;
-      const container = document.getElementById("informacoes-gerais");
-
-      // Cria uma tabela com os dados
-      const table = document.createElement("table");
-
-      // Para cada campo do objeto info, cria uma linha
-      for (const key in info) {
-        const tr = document.createElement("tr");
-        const th = document.createElement("th");
-        th.textContent = formatarChave(key);
-        const td = document.createElement("td");
-        td.textContent = info[key];
-        tr.appendChild(th);
-        tr.appendChild(td);
-        table.appendChild(tr);
-      }
-
-      const titulo = document.createElement("h2");
-      titulo.textContent = "Informações Gerais";
-      container.appendChild(titulo);
-      container.appendChild(table);
     }
-
-    // Função para renderizar requisitos funcionais
-    function renderRequisitosFuncionais() {
-      const rf = data.requisitosFuncionais;
-      const container = document.getElementById("requisitos-funcionais");
-
-      const titulo = document.createElement("h2");
-      titulo.textContent = "Requisitos Funcionais";
-      container.appendChild(titulo);
-
-      rf.forEach(req => {
-        const sub = document.createElement("h3");
-        sub.textContent = `${req.codigo} - ${req.nome}`;
-        container.appendChild(sub);
-
-        const pDesc = document.createElement("p");
-        pDesc.textContent = req.descricao;
-        container.appendChild(pDesc);
-
-        const pPri = document.createElement("p");
-        pPri.innerHTML = `<strong>Prioridade:</strong> ${req.prioridade}`;
-        container.appendChild(pPri);
-
-        const ul = document.createElement("ul");
-        ul.classList.add("details-list");
-        req.detalhes.forEach(d => {
-          const li = document.createElement("li");
-          li.textContent = d;
-          ul.appendChild(li);
-        });
-        container.appendChild(ul);
-      });
+  ],
+  requisitosNaoFuncionais: [
+    {
+      codigo: "RNF001",
+      nome: "Desempenho",
+      prioridade: "Alta",
+      descricao: "O jogo deve manter taxa de quadros estável (FPS) para garantir bom desempenho.",
+      metricas: [
+        "FPS mínimo: 30 em hardware mínimo",
+        "FPS alvo: 60 em hardware recomendado"
+      ]
     }
-      renderRequisitosNaoFuncionais() {
-      const rnf = data.requisitosNaoFuncionais;
-      const container = document.getElementById("requisitos-nao-funcionais");
+  ]
+};
 
-      const titulo = document.createElement("h2");
-      titulo.textContent = "Requisitos Não Funcionais";
-      container.appendChild(titulo);
+// Função para renderizar informações gerais
+function renderInformacoesGerais() {
+  const info = data.informacoesGerais;
+  const container = document.getElementById("informacoes-gerais");
 
-      rnf.forEach(req => {
-        const sub = document.createElement("h3");
-        sub.textContent = `${req.codigo} - ${req.nome}`;
-        container.appendChild(sub);
+  const titulo = document.createElement("h2");
+  titulo.textContent = "Informações Gerais";
+  container.appendChild(titulo);
 
-        const pDesc = document.createElement("p");
-        pDesc.textContent = req.descricao;
-        container.appendChild(pDesc);
+  const table = document.createElement("table");
 
-        const pPri = document.createElement("p");
-        pPri.innerHTML = `<strong>Prioridade:</strong> ${req.prioridade}`;
-        container.appendChild(pPri);
+  for (const key in info) {
+    const tr = document.createElement("tr");
+    const th = document.createElement("th");
+    th.textContent = formatarChave(key);
+    const td = document.createElement("td");
+    td.textContent = info[key];
+    tr.appendChild(th);
+    tr.appendChild(td);
+    table.appendChild(tr);
+  }
 
-        const ul = document.createElement("ul");
-        ul.classList.add("details-list");
-        req.metricas.forEach(m => {
-          const li = document.createElement("li");
-          li.textContent = m;
-          ul.appendChild(li);
-        });
-        container.appendChild(ul);
-      });
-    }
+  container.appendChild(table);
+}
 
-    function formatarChave(chave) {
-        .split("_")
-        .map(p => p.charAt(0).toUpperCase() + p.slice(1))
-        .join(" ");
-    }
+// Função para renderizar requisitos funcionais
+function renderRequisitosFuncionais() {
+  const rf = data.requisitosFuncionais;
+  const container = document.getElementById("requisitos-funcionais");
 
-  ("DOMContentLoaded", () => {
-      renderInformacoesGerais();
-      renderRequisitosFuncionais();
-      renderRequisitosNaoFuncionais();
+  const titulo = document.createElement("h2");
+  titulo.textContent = "Requisitos Funcionais";
+  container.appendChild(titulo);
+
+  rf.forEach(req => {
+    const sub = document.createElement("h3");
+    sub.textContent = `${req.codigo} - ${req.nome}`;
+    container.appendChild(sub);
+
+    const pDesc = document.createElement("p");
+    pDesc.textContent = req.descricao;
+    container.appendChild(pDesc);
+
+    const pPri = document.createElement("p");
+    pPri.innerHTML = `<strong>Prioridade:</strong> ${req.prioridade}`;
+    container.appendChild(pPri);
+
+    const ul = document.createElement("ul");
+    ul.classList.add("details-list");
+    req.detalhes.forEach(d => {
+      const li = document.createElement("li");
+      li.textContent = d;
+      ul.appendChild(li);
     });
+    container.appendChild(ul);
+  });
+}
+
+// Função para renderizar requisitos não funcionais
+function renderRequisitosNaoFuncionais() {
+  const rnf = data.requisitosNaoFuncionais;
+  const container = document.getElementById("requisitos-nao-funcionais");
+
+  const titulo = document.createElement("h2");
+  titulo.textContent = "Requisitos Não Funcionais";
+  container.appendChild(titulo);
+
+  rnf.forEach(req => {
+    const sub = document.createElement("h3");
+    sub.textContent = `${req.codigo} - ${req.nome}`;
+    container.appendChild(sub);
+
+    const pDesc = document.createElement("p");
+    pDesc.textContent = req.descricao;
+    container.appendChild(pDesc);
+
+    const pPri = document.createElement("p");
+    pPri.innerHTML = `<strong>Prioridade:</strong> ${req.prioridade}`;
+    container.appendChild(pPri);
+
+    const ul = document.createElement("ul");
+    ul.classList.add("details-list");
+    req.metricas.forEach(m => {
+      const li = document.createElement("li");
+      li.textContent = m;
+      ul.appendChild(li);
+    });
+    container.appendChild(ul);
+  });
+}
+
+// Função para formatar chaves
+function formatarChave(chave) {
+  return chave
+    .split("_")
+    .map(p => p.charAt(0).toUpperCase() + p.slice(1))
+    .join(" ");
+}
+
+// Executa quando o DOM estiver carregado
+document.addEventListener("DOMContentLoaded", () => {
+  renderInformacoesGerais();
+  renderRequisitosFuncionais();
+  renderRequisitosNaoFuncionais();
+});
