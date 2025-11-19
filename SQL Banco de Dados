@@ -1,14 +1,102 @@
-CREATE TABLE dark shadow (
-  jogador_id INT PRIMARY KEY,
-  dark `shadow VARCHAR(100),
-  gamertag VARCHAR(50) 
+  CRIAÇÃO DO BANCO DE DADOS
+
+CREATE DATABASE ShadowSoul;
+USE ShadowSoul
+
+  TABELA: InformacoesGerais
+
+CREATE TABLE InformacoesGerais (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nome_jogo VARCHAR(100) NOT NULL,
+    genero VARCHAR(100) NOT NULL,
+    plataformas VARCHAR(100) NOT NULL,
+    publico_alvo VARCHAR(100) NOT NULL,
+    versao_documento VARCHAR(100) NOT NULL,
+    data_documento DATE NOT NULL,
+    sinopse TEXT NOT NULL
 );
- 
- CREATE TABLE progresso (
-   progresso_id INT PRIMARY KEY,
-   adam_id INT,
-   descricao VARCHAR(255),
-   data_progresso DATE,
-   FOREIGN KEY (adam_id)                                            REFERENCES jogadores(adam_id) 
+
+  Inserção dos dados gerais
+INSERT INTO InformacoesGerais 
+(nome_jogo, genero, plataformas, publico_alvo, versao_documento, data_documento, sinopse)
+VALUES
+(
+   'Shadow Soul',
+    'Ação e Terror',
+    'PC e Mobile',
+    '+12 (Violência e Medo)',
+    '1.0',
+    '2025-11-19',
+    'André, um garoto de 17 anos, encontra uma escapada mágica que lhe dá a capacidade de ver e tocar fantasmas. Ele passa a usar esse poder para caçá-los e proteger as pessoas.'
 );
-  
+
+ TABELA: RequisitosFuncionais
+
+CREATE TABLE RequisitosFuncionais (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    codigo VARCHAR(10) NOT NULL,
+    nome VARCHAR(200) NOT NULL,
+    prioridade VARCHAR(20) NOT NULL,
+    descricao TEXT NOT NULL
+);
+
+  TABELA: DetalhesRequisitosFuncionais
+
+CREATE TABLE DetalhesRequisitosFuncionais (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    requisito_id INT NOT NULL,
+    detalhe TEXT NOT NULL,
+    FOREIGN KEY (requisito_id) REFERENCES RequisitosFuncionais(id)
+);
+
+-- Inserção RF001
+INSERT INTO RequisitosFuncionais (codigo, nome, prioridade, descricao)
+VALUES
+(
+    'RF001',
+    'Sistema de Movimentação',
+    'Alta',
+    'O jogador deve controlar André em perspectiva 2D, interagindo com o ambiente, atacando inimigos e desviando de obstáculos.'
+);
+
+-- Inserção dos detalhes do RF001
+INSERT INTO DetalhesRequisitosFuncionais (requisito_id, detalhe)
+VALUES
+    (1, 'Teclas WASD ou setas para movimento (PC)'),
+    (1, 'Movimento via toque ou arrastar no mobile'),
+    (1, 'Velocidade de movimento: 3 metros por segundo'),
+    (1, 'Suporte para corrida: PC (Shift), Mobile (Botão "Correr")');
+
+  TABELA: RequisitosNaoFuncionais
+
+CREATE TABLE RequisitosNaoFuncionais (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    codigo VARCHAR(10) NOT NULL,
+    nome VARCHAR(200) NOT NULL,
+    prioridade VARCHAR(20) NOT NULL,
+    descricao TEXT NOT NULL
+);
+
+   TABELA: MetricasRequisitosNF
+CREATE TABLE MetricasRequisitosNF (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    requisito_id INT NOT NULL,
+    metrica TEXT NOT NULL,
+    FOREIGN KEY (requisito_id) REFERENCES RequisitosNaoFuncionais(id)
+);
+
+-- Inserção RNF001
+INSERT INTO RequisitosNaoFuncionais (codigo, nome, prioridade, descricao)
+VALUES
+(
+    'RNF001',
+    'Desempenho',
+    'Alta',
+    'O jogo deve manter taxa de quadros estável (FPS) para garantir bom desempenho.'
+);
+
+-- Inserção métricas RNF001
+INSERT INTO MetricasRequisitosNF (requisito_id, metrica)
+VALUES
+    (1, 'FPS mínimo: 30 em hardware mínimo'),
+    (1, 'FPS alvo: 60 em hardware recomendado');
