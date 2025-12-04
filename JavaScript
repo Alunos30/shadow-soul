@@ -1,4 +1,3 @@
-// Requisitos
 const data = {
   informacoesGerais: {
     nome_jogo: "Shadow Soul",
@@ -37,7 +36,6 @@ const data = {
   ]
 };
 
-// Função para renderizar informações gerais
 function renderInformacoesGerais() {
   const info = data.informacoesGerais;
   const container = document.getElementById("informacoes-gerais");
@@ -62,7 +60,6 @@ function renderInformacoesGerais() {
   container.appendChild(table);
 }
 
-// Função para renderizar requisitos funcionais
 function renderRequisitosFuncionais() {
   const rf = data.requisitosFuncionais;
   const container = document.getElementById("requisitos-funcionais");
@@ -95,7 +92,6 @@ function renderRequisitosFuncionais() {
   });
 }
 
-// Função para renderizar requisitos não funcionais
 function renderRequisitosNaoFuncionais() {
   const rnf = data.requisitosNaoFuncionais;
   const container = document.getElementById("requisitos-nao-funcionais");
@@ -128,7 +124,6 @@ function renderRequisitosNaoFuncionais() {
   });
 }
 
-// Função para formatar chaves
 function formatarChave(chave) {
   return chave
     .split("_")
@@ -136,7 +131,6 @@ function formatarChave(chave) {
     .join(" ");
 }
 
-// Executa quando o DOM estiver carregado
 document.addEventListener("DOMContentLoaded", () => {
   renderInformacoesGerais();
   renderRequisitosFuncionais();
