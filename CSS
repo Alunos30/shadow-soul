@@ -29,10 +29,6 @@ h3 {
     color: #661111; /* laranja para sub-títulos */
 }
 
-/* =========================
-   SEÇÕES PRINCIPAIS
-   ========================= */
-
 .section {
     background-color: #000000;
     border-radius: 10px;
@@ -43,10 +39,6 @@ h3 {
 .section p {
     margin: 10px 0;
 }
-
-/* =========================
-   TABELAS
-   ========================= */
 
 table {
     width: 100%;
@@ -71,10 +63,6 @@ th {
 tr:nth-child(even) {
     background-color: #000000;
 }
-
-/* =========================
-   DETALHES DE REQUISITOS
-   ========================= */
 
 .details-list {
     list-style-type: disc;
